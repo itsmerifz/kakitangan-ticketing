@@ -4,7 +4,7 @@
 }
 
 *{
-  font-family: 'depixelbreit' !important;
+  font-family: 'depixelbreit';
 }
 
 @tailwind base;

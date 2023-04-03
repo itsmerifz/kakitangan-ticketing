@@ -1,13 +1,18 @@
-import { useState } from 'react'
-import './App.css'
-import Layout from './components/Layouts'
+import React from "react";
+const Layout = React.lazy(() => import("./components/Layouts"));
+import Navbar from "./components/Navbar";
+import Loader from "./components/Loader";
+import Home from "./pages/Home";
 
 const App = () => {
-  return(
-    <Layout>
-      <h1>aijsaijsi</h1>
-    </Layout>
-  )
-}
+  return (
+    <React.Suspense fallback={<Loader/>}>
+      <Layout>
+        <Navbar />
+        <Home />
+      </Layout>
+    </React.Suspense>
+  );
+};
 
-export default App
+export default App;

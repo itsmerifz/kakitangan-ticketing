@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'depixelbreit';
+  src: url('./assets/fonts/depixelbreit.woff') format('woff');
+}
+
+*{
+  font-family: 'depixelbreit' !important;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

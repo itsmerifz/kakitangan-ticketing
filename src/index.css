@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: 'depixelbreit';
   src: url('./assets/fonts/depixelbreit.woff') format('woff');
@@ -7,6 +11,35 @@
   font-family: 'depixelbreit';
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.event {
+  border: 2px solid #000;
+}
+
+.event:hover{
+  box-shadow: 12px 12px
+}
+
+.box-konfirmasi {
+  border: 2px solid #000;
+  box-shadow: 10px 10px;
+}
+
+.tombol{
+  background-image: url("/src/assets/img/tombol.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  @apply transition-all;
+}
+
+.tombol:hover{
+  @apply scale-110;
+}
+
+.input{
+  box-shadow: 5px 5px;
+}
+
+.file-input{
+  box-shadow: 5px 5px;
+}

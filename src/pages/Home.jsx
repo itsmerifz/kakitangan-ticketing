@@ -11,10 +11,9 @@ const Home = () => {
 
   React.useEffect(() => {
     window.innerWidth > 768 ? setCarousel(1) : setCarousel(0);
-    setTimeout(() => {
+    if (event.length === 0) {
       setEvent(data);
-    }, 1000);
-    console.log(data);
+    }
   }, [data]);
 
   return (

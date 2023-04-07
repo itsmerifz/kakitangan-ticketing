@@ -7,6 +7,11 @@
   src: url('./assets/fonts/depixelbreit.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'depixelhalbfett';
+  src: url('./assets/fonts/depixelhalbfett.woff') format('woff');
+}
+
 *{
   font-family: 'depixelbreit';
 }
@@ -42,4 +47,12 @@
 
 .file-input{
   box-shadow: 5px 5px;
+}
+
+.detail-event {
+  box-shadow: 8px 8px #292929;
+}
+
+.input#jumlahTiket {
+  box-shadow: none;
 }

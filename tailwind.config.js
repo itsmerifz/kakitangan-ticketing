@@ -2,7 +2,11 @@
 export default {
   content: ["./src/**/*"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        pixel_bold: ["depixelhalbfett", "monospace"],
+      }
+    },
   },
   daisyui: {
     themes: [

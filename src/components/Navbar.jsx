@@ -13,6 +13,7 @@ const Navbar = ({ children }) => {
 
   if (user){
     cookies.set('user', user.uid);
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
   if (loading) {
@@ -97,7 +98,7 @@ const NavbarDesktop = ({ user }) => {
 
   return (
     <div
-      className={`w-full navbar transition-colors duration-500 sticky top-0  ${
+      className={`w-full navbar transition-colors duration-500 sticky top-0 z-30  ${
         navbarBg ? "bg-base-300" : "bg-transparent"
       }`}
     >

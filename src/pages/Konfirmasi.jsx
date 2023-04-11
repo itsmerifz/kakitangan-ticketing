@@ -26,10 +26,13 @@ const FormKonfirmasi = () => {
   const [buktiTransaksi, setBuktiTransaksi] = React.useState(null);
 
   const handleUpload = async () => {
-
+    setIsUploading(true)
+    const formData = new FormData();
   };
 
-  React.useEffect(() => {});
+  React.useEffect(() => {
+    
+  });
 
   return (
     <React.Fragment>

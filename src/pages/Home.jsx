@@ -13,6 +13,7 @@ const Home = () => {
     window.innerWidth > 768 ? setCarousel(1) : setCarousel(0);
     if (event.length === 0) {
       setEvent(data);
+      console.log(data);
     }
   }, [data]);
 
@@ -37,7 +38,6 @@ const Home = () => {
           </div>
         )}
       </section>
-      <Footer />
     </>
   );
 };
@@ -47,13 +47,13 @@ const Carousel = () => {
     <>
       <div className="carousel mt-[-35px] rounded-box m-0 p-0">
         <div id="item1" className="carousel-item h-full">
-          <img src="/src/assets/img/1.jpg" width={1500} alt="Bahas Bahasa" />
+          <img src="/src/assets/img/1.webp" width={1500} alt="Bahas Bahasa" />
         </div>
         <div id="item2" className="carousel-item h-full">
-          <img src="/src/assets/img/2.jpg" width={1500} alt="Bahas Bahasa" />
+          <img src="/src/assets/img/2.webp" width={1500} alt="Bahas Bahasa" />
         </div>
         <div id="item3" className="carousel-item h-full">
-          <img src="/src/assets/img/3.jpg" width={1500} alt="Bahas Bahasa" />
+          <img src="/src/assets/img/3.webp" width={1500} alt="Bahas Bahasa" />
         </div>
       </div>
       <div className="flex items-center justify-center w-full rounded-none mt-[-65px] gap-4">
@@ -85,13 +85,13 @@ const CarouselPhone = () => {
     <>
       <div className="carousel mt-[-35px] h-96 rounded-box z-0">
         <div className="carousel-item h-full" id="item1">
-          <img src="/src/assets/img/hp 1.jpg" alt="Bahas Bahasa" />
+          <img src="/src/assets/img/hp 1.webp" alt="Bahas Bahasa" />
         </div>
         <div className="carousel-item h-full" id="item2">
-          <img src="/src/assets/img/hp 2.jpg" alt="Promo Bahas Bahasa" />
+          <img src="/src/assets/img/hp 2.webp" alt="Promo Bahas Bahasa" />
         </div>
         <div className="carousel-item h-full" id="item3">
-          <img src="/src/assets/img/hp 3.jpg" alt="Promo Bahas Bahasa" />
+          <img src="/src/assets/img/hp 3.webp" alt="Promo Bahas Bahasa" />
         </div>
       </div>
       <div className="flex items-center justify-center w-full rounded-none mt-[-65px] gap-4">
@@ -156,12 +156,6 @@ const ListEvent = ({ item }) => {
   );
 };
 
-const Footer = () => {
-  return (
-    <footer className="p-3 border-t-2 footer border-current footer-center">
-      &copy; {new Date().getFullYear()} - KKTNGN
-    </footer>
-  );
-};
+
 
 export default Home;

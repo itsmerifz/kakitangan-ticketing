@@ -6,46 +6,14 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
+import { RecoilRoot } from "recoil";
 import App from "./App";
 import "./index.css";
 import Home from "./pages/Home";
 import { getEventData } from "./utils/actions";
 import Event from "./pages/Event";
 import Konfirmasi from "./pages/Konfirmasi";
-
-// const Routes = [
-//   {
-//     path: '/',
-//     element: <Home />,
-//     loader: getEventData,
-//   },
-
-//   {
-//     path: '/tiket',
-//     element: <Home />,
-//   },
-//   {
-//     path: '/transaksi',
-//     element: <Home />,
-//   },
-//   {
-//     path: '/event/:eventId',
-//     element: <Event />,
-//   }
-// ]
-
-// const Router = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <App />,
-//     children: Routes.map(route => ({
-//       index: route.path === '/',
-//       path: route.path,
-//       element: route.element,
-//       loader: route.loader ? route.loader : null,
-//     }))
-//   }
-// ])
+import Sukses_Trx from "./pages/Sukses_Trx";
 
 const Router = createBrowserRouter(
   createRoutesFromElements(
@@ -54,12 +22,15 @@ const Router = createBrowserRouter(
       <Route path="/konfirmasi-tiket" element={<Konfirmasi />} />
       <Route path="/transaksi" element={<Home />} />
       <Route path="/event/:eventId" element={<Event />} />
+      <Route path="/success" element={<Sukses_Trx />} />
     </Route>
   )
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={Router} />
+    <RecoilRoot>
+      <RouterProvider router={Router} />
+    </RecoilRoot>
   </React.StrictMode>
 );

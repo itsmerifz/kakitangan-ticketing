@@ -5,6 +5,7 @@ import { auth } from "../utils/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Loader from "./Loader";
 import Cookies from "universal-cookie";
+import Logo from '../assets/img/logo.webp'
 
 const cookies = new Cookies()
 
@@ -122,7 +123,7 @@ const NavbarDesktop = ({ user }) => {
       <div className="flex-1 px-2 mx-2">
         <Link to="/" className="w-24">
           <img
-            src="/src/assets/img/logo.webp"
+            src={Logo}
             className="m-0"
             alt="Logo KKTNGN"
           />

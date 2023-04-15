@@ -3,7 +3,6 @@ import "firebase/compat/auth"
 import "firebase/compat/firestore"
 import { getStorage } from "firebase/storage"
 import { firebaseConfig } from "./config"
-import { ref, uploadBytesResumable, getDownloadURL } from "@firebase/storage"
 
 const app = firebase.initializeApp(firebaseConfig)
 const auth = app.auth()
@@ -11,4 +10,4 @@ const provider = new firebase.auth.GoogleAuthProvider()
 const db = app.firestore()
 const storage = getStorage(app)
 
-export { auth, provider, app, db }
+export { auth, provider, app, db, storage }

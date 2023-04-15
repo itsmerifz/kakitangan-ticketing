@@ -7,6 +7,10 @@ import { getEventDetail, sendTrxRequest } from "../utils/actions";
 import { jenisTrxState, totalHargaState, kodeTrxState } from "../utils/atoms";
 import { GrMap, GrCalendar } from "react-icons/gr";
 import Cookies from "universal-cookie";
+import { Helmet } from "react-helmet";
+import CoverBB from "../assets/img/bahas-bahasa.webp";
+import TiketIcon from "../assets/img/tickets.webp";
+import MoneyIcon from "../assets/img/money.webp";
 
 const cookies = new Cookies();
 
@@ -48,7 +52,6 @@ const Event = () => {
       setNoHpPemesan('')
       setIsLoading(false);
     });
-    console.log(event);
   }, []);
 
   if (isLoading) {
@@ -72,7 +75,6 @@ const Event = () => {
         id_user: user.uid,
       };
       sendTrxRequest(data).then((res) => {
-        console.log(res.data.kode_transaksi);
         setFixedJenisPembayaran(jenisPembayaran);
         setTotalHarga(jumlahTiket * hargaTiket);
         setKodeTransaksi(res.data.kode_transaksi);
@@ -92,12 +94,15 @@ const Event = () => {
 
   return (
     <React.Fragment>
+      <Helmet>
+        <title>KKTNGN | Beli Tiket {event.nama_event}</title>
+      </Helmet>
       <div className="flex flex-col lg:flex-row p-8 gap-24">
         <div>
           <div className="min-h-16 max-w-[800px] bg-white rounded-lg detail-event p-6">
             <div className="flex gap-12">
               <div className="hidden lg:block">
-                <img src={event.foto_event} alt="" width={350} />
+                <img src={`${event.nama_event === 'Bahas Bahasa' ? CoverBB : event.foto_event}`} alt="Cover Event" width={350} />
               </div>
               <div className="">
                 <h1 className="m-0 font-pixel_bold">{event.nama_event}</h1>
@@ -161,7 +166,8 @@ const Event = () => {
                 <input
                   type="text"
                   className="input input-bordered rounded-none"
-                  placeholder="cth. +6281234567890"
+                  placeholder="cth. 6281234567890"
+                  onKeyPress={e => !/[0-9]/.test(e.key) && e.preventDefault() }
                   value={NoHpPemesan}
                   onChange={e => setNoHpPemesan(e.target.value)}
                 />
@@ -184,7 +190,7 @@ const Event = () => {
             <div className="flex gap-5">
               <div className="flex flex-col gap-2">
                 <img
-                  src="/src/assets/img/tickets.webp"
+                  src={TiketIcon}
                   className="m-0 mt-5"
                   alt="Tiket Icon"
                   width={50}
@@ -212,7 +218,7 @@ const Event = () => {
             <div className="flex gap-5 items-center">
               <div className="flex flex-col gap-2">
                 <img
-                  src="/src/assets/img/money.webp"
+                  src={MoneyIcon}
                   className="m-0 mt-5"
                   width={50}
                   alt="Uang Icon"

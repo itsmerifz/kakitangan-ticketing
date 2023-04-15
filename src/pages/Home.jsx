@@ -3,6 +3,14 @@ import { Helmet } from "react-helmet";
 import { Link, useLoaderData } from "react-router-dom";
 import { GrMap, GrCalendar } from "react-icons/gr";
 import { RotateLoader } from "react-spinners";
+import Desktop1 from '../assets/img/1.webp'
+import Desktop2 from '../assets/img/2.webp'
+import Desktop3 from '../assets/img/3.webp'
+import HP1 from '../assets/img/hp 1.webp'
+import HP2 from '../assets/img/hp 2.webp'
+import HP3 from '../assets/img/hp 3.webp'
+import CoverBB from '../assets/img/bahas-bahasa.webp'
+
 
 const Home = () => {
   const [carousel, setCarousel] = React.useState(0);
@@ -13,7 +21,6 @@ const Home = () => {
     window.innerWidth > 768 ? setCarousel(1) : setCarousel(0);
     if (event.length === 0) {
       setEvent(data);
-      console.log(data);
     }
   }, [data]);
 
@@ -30,7 +37,7 @@ const Home = () => {
         </div>
         {event.length > 0 ? (
           event.map((item, index) => {
-            return <ListEvent key={index} item={item} />;
+            return <ListEvent key={index} foto={`${item.nama_event === 'Bahas Bahasa' ? CoverBB : item.fote_event}`} item={item} />;
           })
         ) : (
           <div className="w-full flex items-center justify-center">
@@ -47,13 +54,13 @@ const Carousel = () => {
     <>
       <div className="carousel mt-[-35px] rounded-box m-0 p-0">
         <div id="item1" className="carousel-item h-full">
-          <img src="/src/assets/img/1.webp" width={1500} alt="Bahas Bahasa" />
+          <img src={Desktop1} width={1500} alt="Bahas Bahasa" />
         </div>
         <div id="item2" className="carousel-item h-full">
-          <img src="/src/assets/img/2.webp" width={1500} alt="Bahas Bahasa" />
+          <img src={Desktop2} width={1500} alt="Bahas Bahasa" />
         </div>
         <div id="item3" className="carousel-item h-full">
-          <img src="/src/assets/img/3.webp" width={1500} alt="Bahas Bahasa" />
+          <img src={Desktop3} width={1500} alt="Bahas Bahasa" />
         </div>
       </div>
       <div className="flex items-center justify-center w-full rounded-none mt-[-65px] gap-4">
@@ -85,13 +92,13 @@ const CarouselPhone = () => {
     <>
       <div className="carousel mt-[-35px] h-96 rounded-box z-0">
         <div className="carousel-item h-full" id="item1">
-          <img src="/src/assets/img/hp 1.webp" alt="Bahas Bahasa" />
+          <img src={HP1} alt="Bahas Bahasa" />
         </div>
         <div className="carousel-item h-full" id="item2">
-          <img src="/src/assets/img/hp 2.webp" alt="Promo Bahas Bahasa" />
+          <img src={HP2} alt="Promo Bahas Bahasa" />
         </div>
         <div className="carousel-item h-full" id="item3">
-          <img src="/src/assets/img/hp 3.webp" alt="Promo Bahas Bahasa" />
+          <img src={HP3} alt="Promo Bahas Bahasa" />
         </div>
       </div>
       <div className="flex items-center justify-center w-full rounded-none mt-[-65px] gap-4">
@@ -118,7 +125,7 @@ const CarouselPhone = () => {
   );
 };
 
-const ListEvent = ({ item }) => {
+const ListEvent = ({ item, foto }) => {
   const rupiah = new Intl.NumberFormat("id-ID", {
     style: "currency",
     currency: "IDR",
@@ -132,7 +139,7 @@ const ListEvent = ({ item }) => {
           className="card transition-all card-compact w-72 rounded-none event z-0"
         >
           <figure className="m-0">
-            <img src={item.foto_event} alt="Event Bahas Bahasa" />
+            <img src={foto} alt="Event Bahas Bahasa" />
           </figure>
           <div className="card-body">
             <p className="card-title m-0 text-base">{item.nama_event}</p>

@@ -2,6 +2,7 @@ import React from 'react'
 import { useRecoilState } from 'recoil'
 import { jenisTrxState, totalHargaState, kodeTrxState } from '../utils/atoms'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 const rupiah = new Intl.NumberFormat("id-ID", {
   style: "currency",
@@ -16,6 +17,9 @@ const Sukses_Trx = () => {
 
   return (
     <React.Fragment>
+      <Helmet>
+        <title>KKTNGN | MAKASE ! &lt;3</title>
+      </Helmet>
       <div className='p-4 mx-auto mt-5 min-h-screen'>
         <h1 className='mx-auto font-pixel_bold text-center'>MAKASE ! &lt;3 </h1>
         <div className='w-full h-auto bg-slate-400 p-4 box-konfirmasi'>

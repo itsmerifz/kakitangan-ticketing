@@ -183,7 +183,7 @@ const Event = () => {
                   <span className="label-text">Jenis Pembayaran</span>
                 </label>
                 <select onChange={e => setJenisPembayaran(e.target.value)} value={jenisPembayaran} className="select w-full max-w-md input rounded-none">
-                  <option value="transfer">Transfer</option>
+                  <option value="transfer">Transfer (QRIS)</option>
                   <option value="cod">Cash On Delivery</option>
                 </select>
               </div>

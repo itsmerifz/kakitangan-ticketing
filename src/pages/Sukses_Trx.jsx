@@ -3,6 +3,7 @@ import { useRecoilState } from 'recoil'
 import { jenisTrxState, totalHargaState, kodeTrxState } from '../utils/atoms'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
+import QRIS from '../assets/img/qris.webp'
 
 const rupiah = new Intl.NumberFormat("id-ID", {
   style: "currency",
@@ -20,9 +21,9 @@ const Sukses_Trx = () => {
       <Helmet>
         <title>KKTNGN | MAKASE ! &lt;3</title>
       </Helmet>
-      <div className='p-4 mx-auto mt-5 min-h-screen'>
+      <div className='p-4 mx-auto mt-5'>
         <h1 className='mx-auto font-pixel_bold text-center'>MAKASE ! &lt;3 </h1>
-        <div className='w-full h-auto bg-slate-400 p-4 box-konfirmasi'>
+        <div className='w-full bg-slate-400 p-4 box-konfirmasi mb-12'>
           <h2 className='m-0 p-3 border-b-2 border-current text-center'>Transaksi Kamu Berhasil</h2>
           {
             fixedJenisPembayaran !== 'transfer' ? <CODLayout kode={kodeTransaksi} harga={totalHarga}/> : <TransferLayout harga={totalHarga}/>
@@ -36,10 +37,13 @@ const Sukses_Trx = () => {
 const TransferLayout = ({ harga }) => {
   return (
     <div className='flex flex-col items-center justify-center'>
-      <p>Silahkan melakukan transfer sebesar <span className='font-extrabold underline'>{rupiah.format(harga)}</span> ke Rekening:</p>
-      <h2 className='m-0 mb-4 text-center lg:text-2xl text-base'>BANK BRI: 7854-0100-4239-538 <br />a.n. : Maryam Anggun Hiola</h2>
-      <p>Setelah melakukan transfer, silahkan upload bukti transfer di halaman <Link to={'/konfirmasi-tiket'}>Konfirmasi Tiket</Link>.</p>
-      <h4 className='m-0 mb-2 font-black px-3'>JANGAN MELAKUKAN TRANSAKSI KE NOMOR REKENING SELAIN REKENING DIATAS!</h4>
+      <p>Silahkan melakukan pembayaran sebesar <span className='font-extrabold underline'>{rupiah.format(harga)}</span> ke:</p>
+      <h3 className='m-0 mb-4 text-center lg:text-2xl text-base'>BANK BRI: 7854-0100-4239-538 <br />a.n. : Maryam Anggun Hiola</h3>
+      <h3>ATAU</h3>
+      <h2 className='m-0 mb-4 text-center lg:text-2xl text-base'> QRIS KAKITANGAN</h2>
+      <img src={QRIS} className='rounded-xl' width={250} alt="QRIS KKTNGN" />
+      <p>Setelah melakukan pembayaran, silahkan upload bukti pembayaran di halaman <Link to={'/konfirmasi-tiket'}>Konfirmasi Tiket</Link>.</p>
+      <h4 className='m-0 mb-2 font-black px-3'>JANGAN MELAKUKAN TRANSAKSI SELAIN QR DIATAS!</h4>
     </div>
   )
 }
@@ -47,7 +51,7 @@ const TransferLayout = ({ harga }) => {
 const CODLayout = ({ harga, kode }) => {
   const handleWhatsapp = () => {
     let text = `Halo kak, mau COD tiket bahas bahasa dengan kode ${kode} ${rupiah.format(harga)} bagaimana kak? Terima kasih.`
-    return window.open(`https://wa.me/6282293324474?text=${text}`, '_blank')
+    return window.open(`https://wa.me/6289676452388?text=${text}`, '_blank')
   }
 
   return (

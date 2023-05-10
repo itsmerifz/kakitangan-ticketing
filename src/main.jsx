@@ -14,15 +14,17 @@ import { getEventData } from "./utils/actions";
 import Event from "./pages/Event";
 import Konfirmasi from "./pages/Konfirmasi";
 import Sukses_Trx from "./pages/Sukses_Trx";
+import ErrorPage from "./pages/ErrorPage";
 
 const Router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App />}>
+    <Route path="/" element={<App />} errorElement={<ErrorPage/>}>
       <Route path="/" element={<Home />} loader={getEventData} />
       <Route path="/konfirmasi-tiket" element={<Konfirmasi />} />
       <Route path="/transaksi" element={<Home />} />
       <Route path="/event/:eventId" element={<Event />} />
       <Route path="/success" element={<Sukses_Trx />} />
+      {/* <Route path="*" element={<h1>404</h1>} /> */}
     </Route>
   )
 );
